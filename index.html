@@ -464,6 +464,61 @@
     text-decoration: none;
   }
 
+  .booking-form {
+    margin-top: 20px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: var(--radius);
+    padding: clamp(24px, 4vw, 36px);
+  }
+  .booking-form h3 { font-size: 1.2rem; font-weight: 700; }
+  .booking-form .form-hint { margin-top: 6px; color: rgba(255,255,255,.65); font-size: .88rem; }
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .form-field-wide { grid-column: 1 / -1; }
+  @media (max-width: 560px) { .form-grid { grid-template-columns: 1fr; } }
+  .form-field { display: flex; flex-direction: column; gap: 6px; }
+  .form-field label { font-size: .82rem; font-weight: 600; color: rgba(255,255,255,.75); }
+  .form-field input, .form-field textarea {
+    background: rgba(255,255,255,.95);
+    color: var(--ink);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 11px 13px;
+    font: inherit;
+    font-family: "Noto Sans TC", sans-serif;
+    resize: vertical;
+  }
+  .form-field input:focus, .form-field textarea:focus {
+    outline: 2px solid var(--yy-yellow);
+    outline-offset: 1px;
+  }
+  .btn-submit {
+    margin-top: 20px;
+    width: 100%;
+    background: var(--yy-yellow);
+    color: var(--accent-ink);
+    border: none;
+    padding: 14px 26px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .btn-submit:disabled { opacity: .6; cursor: default; }
+  .form-status {
+    margin-top: 14px;
+    margin-bottom: 0;
+    font-size: .9rem;
+    font-weight: 600;
+  }
+  .form-status.ok { color: var(--yy-yellow); }
+  .form-status.err { color: #ff8b8b; }
+
   footer {
     padding: 28px clamp(20px, 5vw, 48px) calc(28px + env(safe-area-inset-bottom, 0px));
     text-align: center;
@@ -622,6 +677,27 @@
         <a class="btn-call" href="tel:0907781663">直接撥打電話</a>
       </div>
     </div>
+
+    <form class="booking-form" id="bookingForm" action="https://formspree.io/f/xljdbwla" method="POST">
+      <h3>或直接留下您的聯絡方式</h3>
+      <p class="form-hint">填好送出，珮妤會盡快主動與您聯繫。</p>
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="f-name">姓名</label>
+          <input id="f-name" name="姓名" type="text" required autocomplete="name">
+        </div>
+        <div class="form-field">
+          <label for="f-phone">電話</label>
+          <input id="f-phone" name="電話" type="tel" required autocomplete="tel">
+        </div>
+        <div class="form-field form-field-wide">
+          <label for="f-message">想諮詢的內容</label>
+          <textarea id="f-message" name="想諮詢的內容" rows="3" placeholder="例如：想了解板橋區的行情、想賣掉桃園的房子…"></textarea>
+        </div>
+      </div>
+      <button class="btn-submit" type="submit">送出預約諮詢</button>
+      <p class="form-status" id="formStatus" role="status" hidden></p>
+    </form>
   </div>
 </section>
 
@@ -633,6 +709,44 @@
   <a class="m-line" href="https://line.me/ti/p/VTwLEE75F8" target="_blank" rel="noopener">加 LINE 諮詢</a>
   <a class="m-call" href="tel:0907781663">撥打電話</a>
 </div>
+
+<script>
+  (function () {
+    var form = document.getElementById('bookingForm');
+    if (!form) return;
+    var status = document.getElementById('formStatus');
+    var submitBtn = form.querySelector('.btn-submit');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = '送出中…';
+      status.hidden = true;
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (res) {
+        if (res.ok) {
+          form.reset();
+          status.textContent = '✅ 已送出，珮妤會盡快與您聯繫！';
+          status.className = 'form-status ok';
+        } else {
+          status.textContent = '送出失敗，麻煩改用 LINE 或電話直接聯繫，謝謝。';
+          status.className = 'form-status err';
+        }
+        status.hidden = false;
+        submitBtn.disabled = false;
+        submitBtn.textContent = '送出預約諮詢';
+      }).catch(function () {
+        status.textContent = '送出失敗，麻煩改用 LINE 或電話直接聯繫，謝謝。';
+        status.className = 'form-status err';
+        status.hidden = false;
+        submitBtn.disabled = false;
+        submitBtn.textContent = '送出預約諮詢';
+      });
+    });
+  })();
+</script>
 
 </body>
 </html>
