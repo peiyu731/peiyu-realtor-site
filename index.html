@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>珮妤的房仲主頁｜永義房屋 大桃園雙北房仲</title>
+<meta name="description" content="永義房屋珮妤，深耕大桃園、雙北，112、113年度連續兩年TOP1業績，提供資產配置、稅務諮詢、簡易裝潢一站式服務。">
+<link rel="canonical" href="https://peiyu731.github.io/peiyu-realtor-site/">
+<meta property="og:title" content="珮妤｜永義房屋 大桃園雙北房仲">
+<meta property="og:description" content="112、113年度連續兩年TOP1業績，資產配置、稅務諮詢、簡易裝潢，LINE直接預約諮詢。">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://peiyu731.github.io/peiyu-realtor-site/">
+<meta property="og:image" content="https://peiyu731.github.io/peiyu-realtor-site/peiyu-photo.jpg">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "珮妤",
+  "telephone": "+886-907-781-663",
+  "areaServed": ["大桃園", "雙北"],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "永義房屋"
+  },
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "資產配置" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "稅務諮詢" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "簡易裝潢" } }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yy-yellow: #F9BE00;
+    --yy-yellow-deep: #C99500;
+    --yy-green: #009750;
+    --yy-red: #CA2D42;
+    --yy-gray: #5A5752;
+    --yy-white: #FFFFFF;
+
+    --ink: #2B2925;
+    --ink-soft: #5A5752;
+    --paper: #FFFDF7;
+    --panel: #FFFFFF;
+    --panel-tint: #FFF7E0;
+    --border: #EAE2CC;
+    --accent: var(--yy-yellow);
+    --accent-ink: #3A2E00;
+    --brand-green: var(--yy-green);
+    --brand-red: var(--yy-red);
+
+    --shadow-sm: 0 1px 2px rgba(43,41,37,.06);
+    --shadow-md: 0 8px 24px rgba(43,41,37,.10);
+    --radius: 18px;
+
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #F3EFE4;
+      --ink-soft: #C9C2B0;
+      --paper: #1C1A16;
+      --panel: #24211B;
+      --panel-tint: #2E2A1D;
+      --border: #3A3527;
+      --accent-ink: #2B2200;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.3);
+      --shadow-md: 0 8px 28px rgba(0,0,0,.45);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #F3EFE4;
+    --ink-soft: #C9C2B0;
+    --paper: #1C1A16;
+    --panel: #24211B;
+    --panel-tint: #2E2A1D;
+    --border: #3A3527;
+    --accent-ink: #2B2200;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.3);
+    --shadow-md: 0 8px 28px rgba(0,0,0,.45);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    line-height: 1.7;
+  }
+  img { max-width: 100%; display: block; }
+  h1, h2, h3 { font-family: "Noto Serif TC", "Noto Sans TC", serif; text-wrap: balance; margin: 0; }
+  a { color: inherit; }
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding-inline: clamp(20px, 5vw, 48px);
+  }
+  section { padding-block: clamp(56px, 9vw, 108px); }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 40;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-block: 14px;
+  }
+  .nav-brand {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-weight: 700;
+    letter-spacing: .02em;
+  }
+  .nav-brand small { color: var(--ink-soft); font-weight: 500; font-size: .78rem; }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--brand-green);
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: .92rem;
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+    white-space: nowrap;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding-block: clamp(40px, 7vw, 72px) clamp(56px, 9vw, 96px);
+    background:
+      radial-gradient(60% 90% at 85% 0%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%),
+      var(--paper);
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(220px, 340px) 1fr;
+    gap: clamp(28px, 5vw, 64px);
+    align-items: center;
+  }
+  @media (max-width: 720px) {
+    .hero-grid { grid-template-columns: 1fr; text-align: center; }
+    .hero-photo { margin-inline: auto; }
+    .hero-badges, .hero-actions { justify-content: center; }
+  }
+  .hero-photo {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 2 / 3;
+    border-radius: 24px;
+    overflow: hidden;
+    background: linear-gradient(160deg, var(--yy-yellow) 0%, var(--yy-yellow-deep) 55%, var(--yy-green) 130%);
+    box-shadow: var(--shadow-md);
+  }
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+  .hero-photo::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 40%;
+    background: linear-gradient(180deg, transparent, rgba(43,41,37,.55));
+    pointer-events: none;
+  }
+  .hero-photo .photo-caption {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 16px 18px;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: .04em;
+    z-index: 1;
+  }
+  .hero-photo .photo-caption small {
+    display: block;
+    font-weight: 500;
+    font-size: .74rem;
+    color: rgba(255,255,255,.8);
+    margin-top: 2px;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    color: var(--accent-ink);
+    background: var(--panel-tint);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+  }
+  .eyebrow::before { content: "●"; color: var(--brand-red); font-size: .6rem; }
+  .hero h1 {
+    font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+    font-weight: 900;
+    line-height: 1.15;
+  }
+  .hero h1 .role {
+    display: block;
+    font-size: .42em;
+    font-weight: 500;
+    color: var(--ink-soft);
+    margin-top: 10px;
+    font-family: "Noto Sans TC", sans-serif;
+  }
+  .hero-lede {
+    margin-top: 18px;
+    max-width: 46ch;
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+  }
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    font-size: .85rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+  }
+  .badge.area { color: var(--brand-green); }
+  .badge.rank { color: var(--brand-red); }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: .96rem;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: transform .15s ease;
+  }
+  .btn:active { transform: scale(.97); }
+  .btn-primary { background: var(--brand-green); color: #fff; box-shadow: var(--shadow-sm); }
+  .btn-outline { background: transparent; color: var(--ink); border-color: var(--border); }
+
+  /* ---------- Section heading ---------- */
+  .section-head { max-width: 56ch; margin-bottom: clamp(30px, 5vw, 48px); }
+  .section-tag {
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--brand-green);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .section-head h2 {
+    font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+    font-weight: 700;
+  }
+  .section-head p { color: var(--ink-soft); margin-top: 12px; }
+
+  /* ---------- 服務區域 ---------- */
+  .area-band { background: var(--panel); border-bottom: 1px solid var(--border); }
+  .area-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  @media (max-width: 640px) { .area-grid { grid-template-columns: 1fr; } }
+  .area-card {
+    padding: 28px;
+    border-radius: var(--radius);
+    background: var(--panel-tint);
+    border: 1px solid var(--border);
+  }
+  .area-card .area-name {
+    font-family: "Noto Serif TC", serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-ink);
+  }
+  .area-card ul {
+    margin: 14px 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .area-card li {
+    font-size: .84rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 5px 11px;
+    border-radius: 999px;
+  }
+
+  /* ---------- 戰績 ---------- */
+  .stats-band {
+    background: linear-gradient(135deg, var(--yy-yellow) 0%, var(--yy-yellow-deep) 100%);
+    color: var(--accent-ink);
+  }
+  .stats-band .section-tag { color: var(--brand-red); }
+  .stats-band .section-head p { color: color-mix(in srgb, var(--accent-ink) 78%, transparent); }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 28px;
+    align-items: stretch;
+  }
+  @media (max-width: 760px) { .stats-grid { grid-template-columns: 1fr; } }
+  .stat-hero {
+    background: var(--accent-ink);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: clamp(28px, 4vw, 44px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+  }
+  .stat-hero .years { font-size: .95rem; font-weight: 600; letter-spacing: .08em; color: var(--yy-yellow); }
+  .stat-hero .headline {
+    font-family: "Noto Serif TC", serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 4.6vw, 3rem);
+    margin-top: 10px;
+    line-height: 1.2;
+  }
+  .stat-hero .sub { margin-top: 12px; color: rgba(255,255,255,.75); font-size: .92rem; }
+  .stat-side {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .stat-chip {
+    background: #fff;
+    border-radius: 14px;
+    padding: 18px 22px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    box-shadow: var(--shadow-sm);
+    flex: 1;
+  }
+  .stat-chip b { font-family: "Noto Serif TC", serif; font-size: 1.7rem; color: var(--brand-red); font-variant-numeric: tabular-nums; }
+  .stat-chip span { font-size: .86rem; color: var(--ink-soft); }
+
+  /* ---------- 服務項目 ---------- */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  @media (max-width: 860px) { .services-grid { grid-template-columns: 1fr; } }
+  .service-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .service-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+  }
+  .service-card:nth-child(1) .service-icon { background: color-mix(in srgb, var(--yy-yellow) 30%, transparent); }
+  .service-card:nth-child(2) .service-icon { background: color-mix(in srgb, var(--yy-green) 22%, transparent); }
+  .service-card:nth-child(3) .service-icon { background: color-mix(in srgb, var(--yy-red) 20%, transparent); }
+  .service-card h3 { font-size: 1.2rem; font-weight: 700; }
+  .service-card p { color: var(--ink-soft); font-size: .92rem; margin: 0; }
+  .service-card .tag {
+    margin-top: auto;
+    font-size: .76rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- 預約 / LINE ---------- */
+  .booking-band {
+    background: var(--accent-ink);
+    color: #fff;
+  }
+  .booking-band .section-tag { color: var(--yy-yellow); }
+  .booking-band .section-head p { color: rgba(255,255,255,.72); }
+  .booking-card {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: var(--radius);
+    padding: clamp(28px, 5vw, 44px);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 28px;
+    align-items: center;
+  }
+  @media (max-width: 700px) { .booking-card { grid-template-columns: 1fr; text-align: center; } }
+  .booking-card h3 { font-size: 1.5rem; font-weight: 700; }
+  .booking-card .contact-rows { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; color: rgba(255,255,255,.8); font-size: .95rem; }
+  .booking-actions { display: flex; flex-direction: column; gap: 12px; min-width: 220px; }
+  .btn-line {
+    background: var(--yy-green);
+    color: #fff;
+    padding: 15px 26px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 1.02rem;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0,151,80,.35);
+  }
+  .btn-call {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,.3);
+    color: #fff;
+    padding: 13px 26px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  footer {
+    padding: 28px clamp(20px, 5vw, 48px) calc(28px + env(safe-area-inset-bottom, 0px));
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: .82rem;
+    background: var(--paper);
+  }
+
+  /* ---------- Mobile sticky CTA ---------- */
+  .mobile-cta {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 50;
+    display: none;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border);
+    gap: 10px;
+  }
+  .mobile-cta a { flex: 1; text-align: center; padding: 12px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: .92rem; }
+  .mobile-cta .m-line { background: var(--yy-green); color: #fff; }
+  .mobile-cta .m-call { background: var(--panel); border: 1px solid var(--border); color: var(--ink); }
+  @media (max-width: 640px) {
+    .mobile-cta { display: flex; }
+    footer { padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px)); }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <div class="nav-brand">永義房屋 <small>YongYi Realty</small></div>
+    <a class="nav-cta" href="https://line.me/ti/p/~0907781663" target="_blank" rel="noopener">加 LINE 諮詢</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-photo">
+      <img src="peiyu-photo.jpg" alt="珮妤，永義房屋大桃園雙北專任房仲">
+      <span class="photo-caption">珮妤<small>永義房屋・專任房仲</small></span>
+    </div>
+    <div>
+      <span class="eyebrow">永義房屋・大桃園 雙北 專任房仲</span>
+      <h1>珮妤<span class="role">陪您做對每一次不動產決定</span></h1>
+      <p class="hero-lede">從資產配置、稅務規劃到簡易裝潢，一站式服務，用專業與在地經驗幫您把關每一筆交易。</p>
+      <div class="hero-badges">
+        <span class="badge area">📍 服務區域：大桃園・雙北</span>
+        <span class="badge rank">🏆 112・113年度 連續兩年 TOP1</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://line.me/ti/p/~0907781663" target="_blank" rel="noopener">LINE 免費諮詢</a>
+        <a class="btn btn-outline" href="tel:0907781663">📞 0907-781-663</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="area-band">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">Service Area</span>
+      <h2>我服務的區域</h2>
+      <p>深耕在地市場，熟悉行情脈動與社區生態，兩大生活圈都能給您第一手建議。</p>
+    </div>
+    <div class="area-grid">
+      <div class="area-card">
+        <div class="area-name">大桃園</div>
+        <ul>
+          <li>桃園區</li><li>中壢區</li><li>八德區</li><li>蘆竹區</li><li>龜山區</li>
+        </ul>
+      </div>
+      <div class="area-card">
+        <div class="area-name">雙北</div>
+        <ul>
+          <li>台北市</li><li>新北市</li><li>板橋區</li><li>新莊區</li><li>三重區</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats-band">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">Track Record</span>
+      <h2>我的戰績</h2>
+      <p>用實際成交數字說話，持續蟬聯佳績。</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-hero">
+        <span class="years">112 年度 ・ 113 年度</span>
+        <div class="headline">連續兩年榮獲<br>年度業績 TOP 1</div>
+        <p class="sub">兩年蟬聯永義房屋年度冠軍，深受客戶信任與持續回購推薦。</p>
+      </div>
+      <div class="stat-side">
+        <div class="stat-chip"><b>2</b><span>年連續奪冠</span></div>
+        <div class="stat-chip"><b>TOP 1</b><span>年度業績排名</span></div>
+        <div class="stat-chip"><b>3</b><span>項核心服務一站完成</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">Services</span>
+      <h2>我提供的服務項目</h2>
+      <p>不只是買賣仲介，更是您的不動產顧問。</p>
+    </div>
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="service-icon">💰</div>
+        <h3>資產配置</h3>
+        <p>依您的財務目標規劃不動產配置比例，兼顧保值與現金流，長期布局不慌亂。</p>
+        <span class="tag">ASSET PLANNING</span>
+      </article>
+      <article class="service-card">
+        <div class="service-icon">📑</div>
+        <h3>稅務諮詢</h3>
+        <p>買賣過程中的土地增值稅、房地合一稅等試算與提醒，交易前先算清楚。</p>
+        <span class="tag">TAX ADVISORY</span>
+      </article>
+      <article class="service-card">
+        <div class="service-icon">🛠️</div>
+        <h3>簡易裝潢</h3>
+        <p>交屋前後的輕裝修建議與廠商媒合，用最划算的方式讓房子好住又好賣。</p>
+        <span class="tag">RENOVATION</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="booking-band">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">Booking</span>
+      <h2>預約諮詢</h2>
+      <p>不管是想買、想賣，還是單純想了解行情，加 LINE 直接聊最快。</p>
+    </div>
+    <div class="booking-card">
+      <div>
+        <h3>準備好聊聊您的不動產計畫了嗎？</h3>
+        <div class="contact-rows">
+          <span>👤 珮妤・永義房屋</span>
+          <span>📞 0907-781-663</span>
+          <span>💬 LINE ID：0907781663</span>
+          <span>📍 服務區域：大桃園・雙北</span>
+        </div>
+      </div>
+      <div class="booking-actions">
+        <a class="btn-line" href="https://line.me/ti/p/~0907781663" target="_blank" rel="noopener">加 LINE 好友諮詢</a>
+        <a class="btn-call" href="tel:0907781663">直接撥打電話</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 珮妤・永義房屋｜大桃園・雙北 不動產服務
+</footer>
+
+<div class="mobile-cta">
+  <a class="m-line" href="https://line.me/ti/p/~0907781663" target="_blank" rel="noopener">加 LINE 諮詢</a>
+  <a class="m-call" href="tel:0907781663">撥打電話</a>
+</div>
+
+</body>
+</html>
